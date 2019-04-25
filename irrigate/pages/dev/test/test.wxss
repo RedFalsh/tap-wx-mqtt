@@ -4,7 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .node-flex__row {
@@ -64,18 +64,6 @@
   color: #8a8a8a;
   text-align: center;
 }
-.dev-tap-open {
-  font-size: 20rpx;
-  color:rgb(0, 255, 0);
-}
-.dev-tap-close {
-  font-size: 20rpx;
-  color:rgb(255, 0, 0);
-}
-.dev-tap-err {
-  font-size: 20rpx;
-  color:#d4237a;
-}
 
 .dev-btn-switch {
   size: 32px;
@@ -85,8 +73,5 @@ color:rgb(0, 255, 0);
 }
 .dev-btn-close{
 color: rgb(241, 68, 15)
-}
-.dev-btn-err{
-color: rgb(241, 218, 15)
 }
 

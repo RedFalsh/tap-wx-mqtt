@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="27a68efb-11a6-4285-bff1-f0e0c8e61ba9" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/irrigate/style/iconfont.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/app.json" afterPath="$PROJECT_DIR$/irrigate/app.json" />
+      <change beforePath="$PROJECT_DIR$/irrigate/app.wxss" afterPath="$PROJECT_DIR$/irrigate/app.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/dev/node/node.js" afterPath="$PROJECT_DIR$/irrigate/pages/dev/node/node.js" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/dev/node/node.wxml" afterPath="$PROJECT_DIR$/irrigate/pages/dev/node/node.wxml" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/dev/node/node.wxss" afterPath="$PROJECT_DIR$/irrigate/pages/dev/node/node.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/dev/terminal/terminal.js" afterPath="$PROJECT_DIR$/irrigate/pages/dev/terminal/terminal.js" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/dev/terminal/terminal.wxml" afterPath="$PROJECT_DIR$/irrigate/pages/dev/terminal/terminal.wxml" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/dev/terminal/terminal.wxss" afterPath="$PROJECT_DIR$/irrigate/pages/dev/terminal/terminal.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/index/index.js" afterPath="$PROJECT_DIR$/irrigate/pages/index/index.js" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/base/fn.wxss" afterPath="$PROJECT_DIR$/irrigate/style/base/fn.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/base/mixin/setArrow.wxss" afterPath="$PROJECT_DIR$/irrigate/style/base/mixin/setArrow.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/base/mixin/setOnepx.wxss" afterPath="$PROJECT_DIR$/irrigate/style/base/mixin/setOnepx.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/base/mixin/text.wxss" afterPath="$PROJECT_DIR$/irrigate/style/base/mixin/text.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/base/reset.wxss" afterPath="$PROJECT_DIR$/irrigate/style/base/reset.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/base/variable/color.wxss" afterPath="$PROJECT_DIR$/irrigate/style/base/variable/color.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/base/variable/global.wxss" afterPath="$PROJECT_DIR$/irrigate/style/base/variable/global.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/base/variable/weui-button.wxss" afterPath="$PROJECT_DIR$/irrigate/style/base/variable/weui-button.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/base/variable/weui-cell.wxss" afterPath="$PROJECT_DIR$/irrigate/style/base/variable/weui-cell.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/base/variable/weui-dialog.wxss" afterPath="$PROJECT_DIR$/irrigate/style/base/variable/weui-dialog.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/base/variable/weui-grid.wxss" afterPath="$PROJECT_DIR$/irrigate/style/base/variable/weui-grid.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/base/variable/weui-msg.wxss" afterPath="$PROJECT_DIR$/irrigate/style/base/variable/weui-msg.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/base/variable/weui-progress.wxss" afterPath="$PROJECT_DIR$/irrigate/style/base/variable/weui-progress.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/weui.wxss" afterPath="$PROJECT_DIR$/irrigate/style/weui.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-agree/weui-agree.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-agree/weui-agree.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-animate/weui-animate.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-animate/weui-animate.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-button/weui-button.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-button/weui-button.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-cell/weui-access.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-cell/weui-access.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-cell/weui-cell.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-cell/weui-cell.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-cell/weui-check.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-cell/weui-check.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-cell/weui-form.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-cell/weui-form.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-cell/weui-form/weui-form-preview.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-cell/weui-form/weui-form-preview.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-cell/weui-form/weui-form_common.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-cell/weui-form/weui-form_common.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-cell/weui-form/weui-select.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-cell/weui-form/weui-select.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-cell/weui-form/weui-vcode.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-cell/weui-form/weui-vcode.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-cell/weui-switch.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-cell/weui-switch.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-cell/weui-uploader.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-cell/weui-uploader.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-flex/weui-flex.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-flex/weui-flex.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-footer/weui-footer.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-footer/weui-footer.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-grid/weui-grid.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-grid/weui-grid.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-loading/weui-loading.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-loading/weui-loading.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-media-box/weui-media-box.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-media-box/weui-media-box.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-page/weui-article.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-page/weui-article.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-page/weui-msg.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-page/weui-msg.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-panel/weui-panel.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-panel/weui-panel.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-progress/weui-progress.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-progress/weui-progress.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-searchbar/weui-searchbar.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-searchbar/weui-searchbar.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-tab/weui-navbar.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-tab/weui-navbar.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-tab/weui-tab.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-tab/weui-tab.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-tips/weui-badge.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-tips/weui-badge.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/pages/style/widget/weui-tips/weui-loadmore.wxss" afterPath="$PROJECT_DIR$/irrigate/style/widget/weui-tips/weui-loadmore.wxss" />
+      <change beforePath="$PROJECT_DIR$/irrigate/project.config.json" afterPath="$PROJECT_DIR$/irrigate/project.config.json" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="text.wxss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/irrigate/style/base/mixin/text.wxss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="weui.wxss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/irrigate/style/weui.wxss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="5" column="1132" lean-forward="false" selection-start-line="5" selection-start-column="1132" selection-end-line="5" selection-end-column="1132" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="terminal.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/irrigate/pages/dev/terminal/terminal.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="node.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/irrigate/pages/dev/node/node.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="32" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="node.wxss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/irrigate/pages/dev/node/node.wxss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="terminal.wxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/irrigate/pages/dev/terminal/terminal.wxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="22" column="53" lean-forward="false" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="iconfont.wxss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/irrigate/style/iconfont.wxss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.wxss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/irrigate/app.wxss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="node.wxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/irrigate/pages/dev/node/node.wxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="27" column="17" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="27" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="terminal.wxss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/irrigate/pages/dev/terminal/terminal.wxss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/irrigate/pages/dev/terminal/terminal.js" />
+        <option value="$PROJECT_DIR$/irrigate/pages/dev/terminal/terminal.wxml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-11" />
+    <option name="y" value="-11" />
+    <option name="width" value="1400" />
+    <option name="height" value="980" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="tap-wx-mqtt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tap-wx-mqtt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tap-wx-mqtt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tap-wx-mqtt" type="462c0819:PsiDirectoryNode" />
+              <item name="irrigate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tap-wx-mqtt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tap-wx-mqtt" type="462c0819:PsiDirectoryNode" />
+              <item name="irrigate" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tap-wx-mqtt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tap-wx-mqtt" type="462c0819:PsiDirectoryNode" />
+              <item name="irrigate" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tap-wx-mqtt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tap-wx-mqtt" type="462c0819:PsiDirectoryNode" />
+              <item name="irrigate" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+              <item name="node" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tap-wx-mqtt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tap-wx-mqtt" type="462c0819:PsiDirectoryNode" />
+              <item name="irrigate" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tap-wx-mqtt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tap-wx-mqtt" type="462c0819:PsiDirectoryNode" />
+              <item name="irrigate" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\18037\Documents\Arduino\tap-wx-mqtt\irrigate\style" />
+      <recent name="C:\Users\18037\Documents\Arduino\tap-wx-mqtt\irrigate" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\18037\Documents\Arduino\tap-wx-mqtt\irrigate" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="27a68efb-11a6-4285-bff1-f0e0c8e61ba9" name="Default" comment="" />
+      <created>1556097559008</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1556097559008</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-11" y="-11" width="1942" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2497349" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/irrigate/style/base/mixin/text.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/irrigate/style/weui.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="5" column="1132" lean-forward="false" selection-start-line="5" selection-start-column="1132" selection-end-line="5" selection-end-column="1132" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/irrigate/pages/dev/terminal/terminal.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/irrigate/pages/dev/node/node.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="32" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/irrigate/pages/dev/terminal/terminal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/irrigate/pages/dev/node/node.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/irrigate/pages/dev/node/node.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="27" column="17" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="27" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/irrigate/pages/dev/terminal/terminal.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="22" column="53" lean-forward="false" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/irrigate/app.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/irrigate/style/iconfont.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

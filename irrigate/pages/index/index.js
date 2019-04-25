@@ -10,7 +10,7 @@ Page({
   },
   goToIndex: function () {
     wx.switchTab({
-      url: '/pages/dev/terminal/terminal',
+      url: '/pages/dev/node/node',
       success: res => {
 
         console.log(res);

@@ -5,9 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    sites: [],
+    nodes:[
+      {
+      'sn':'1234567890',
+      'name':'终端一号',
+      'position':'一团',
+      'alive':false,
+      'tap_status':1,
+      },
+    ],
   },
 
+  searchNodes: function(){
+    wx.switchTab({
+      url: '/pages/dev/node/node',
+      success: res => {
+
+        console.log(res);
+
+      },
+
+      fail: err => {
+
+        console.log(err)
+
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */

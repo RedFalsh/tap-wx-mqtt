@@ -1,40 +1,10 @@
-// pages/dev/node/node.js
+// pages/dev/test/test.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    nodes:[
-      {
-      'sn':'001',
-      'name':'节点1一号',
-      'position':'地中间',
-      'alive':false,
-      'tap_status':true,
-      },
-      {
-        'sn': '001',
-        'name': '节点2号',
-        'position': '地中间',
-        'alive': false,
-        'tap_status': true,
-      },
-      {
-        'sn': '001',
-        'name': '节点3号',
-        'position': '地中间',
-        'alive': false,
-        'tap_status': true,
-      },
-      {
-        'sn': '001',
-        'name': '节点4号',
-        'position': '地中间',
-        'alive': false,
-        'tap_status': true,
-      },
-    ],
 
   },
 
