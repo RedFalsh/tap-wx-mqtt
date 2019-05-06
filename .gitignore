@@ -1,6 +1,11 @@
 # Compiled class file
 *.class
 
+# dir
+npm/
+third/
+node_modules/
+
 # Log file
 *.log
 

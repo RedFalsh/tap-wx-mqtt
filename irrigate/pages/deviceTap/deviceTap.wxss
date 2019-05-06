@@ -1,0 +1,54 @@
+page {
+  background: radial-gradient(ellipse, #808080, #484848,#303030);
+  background: radial-gradient(ellipse, #0066FF, #0033CC,#0000CC);
+}
+
+.imgImage {
+  width: 256rpx;
+  height: 256rpx;
+}
+
+.status {
+  height: 300rpx;
+  width: 100%;
+  color: #ece2e2;
+  text-align: center;
+  line-height: 300rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-row {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  direction: row;
+  justify-content: space-around;
+}
+
+.btn {
+  width: 106rpx;
+  height: 106rpx;
+  border: solid 1px #ffffff;
+  border-radius: 53rpx;
+  text-align: center;
+  line-height: 106rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-press {
+  background: #D0D0D0;
+  width: 106rpx;
+  height: 106rpx;
+  border: solid 1px #ffffff;
+  border-radius: 53rpx;
+  opacity: 0.7;
+  transform: scale(1.1,1.1);
+}
+
+.btn-img {
+  margin-top: 20rpx;
+  width: 64rpx;
+  height: 64rpx;
+}

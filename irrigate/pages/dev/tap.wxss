@@ -1,0 +1,85 @@
+.item-deviceList {
+  height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+  background: white;
+  margin-top: 5px;
+  justify-content: space-between;
+}
+
+.dev-name {
+  margin-left: 10px;
+  font-size: 0.9rem;
+}
+
+.dev-alive-true {
+  margin-left: 5px;
+  font-size: 0.6rem;
+  color: #0f0;
+}
+
+.dev-alive-false {
+  margin-left: 5px;
+  font-size: 0.6rem;
+  color: red;
+}
+
+.dev-icon {
+  margin-left: 10px;
+  height: 32px;
+  width: 32px;
+  /* width: 80%; *//* text-align: left; */
+}
+
+.dev-position {
+  margin-left: 5px;
+  font-size: 0.8rem;
+  color: #8a8a8a;
+}
+
+.dev-sw {
+  /* background-color: #fff0; */
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.dev-sw-image {
+  /* top: 20rpx; */
+  margin-top: 20rpx;
+  margin-left: -13rpx;
+  /* margin-right: 20px; */
+  width: 64rpx;
+  height:64rpx;
+}
+
+.tap-status-0 {
+  margin-left: 10px;
+  font-size: 0.8rem;
+  color: #f00;
+}
+
+.tap-status-1 {
+  margin-left: 10px;
+  font-size: 0.8rem;
+  color: #0f0;
+}
+
+.tap-status-2 {
+  margin-left: 10px;
+  font-size: 0.8rem;
+  color: #d4237a;
+}
+
+.tap-status-3 {
+  margin-left: 10px;
+  font-size: 0.8rem;
+  color: #a19c9f;
+}
+
+.tap-status-4 {
+  margin-left: 10px;
+  font-size: 0.8rem;
+  color: #a19c9f;
+}

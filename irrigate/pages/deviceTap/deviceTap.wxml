@@ -1,0 +1,19 @@
+<view class="container">
+    <view>
+        <image src="../../images/dev/tap.png" class='imgImage'></image>
+    </view>
+    <view class="status">
+      <text>阀门已经打开</text>
+    </view>
+    <view class="btn-row">
+        <view class="btn" hover-class="btn-press" bindtap="onSwitch">
+            <image class="btn-img" src='../../images/dev/tap-sw-offline.png'></image>
+        </view>
+        <view class="btn" hover-class="btn-press" bindtap="onClock">
+            <image class="btn-img" src="../../images/dev/clock-white.png"></image>
+        </view>
+        <view class="btn" hover-class="btn-press" bindtap="onTime">
+            <image class="btn-img" src="../../images/dev/time-white.png"></image>
+        </view>
+    </view>
+</view>

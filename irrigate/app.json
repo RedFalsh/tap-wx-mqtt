@@ -1,18 +1,18 @@
 {
   "pages": [
-    "pages/dev/test/test",
-    "pages/dev/terminal/terminal",
+    "pages/dev/tap",
+    "pages/deviceTap/deviceTap",
     "pages/index/index",
     "pages/logs/logs",
     "pages/food/index",
     "pages/food/info",
-    "pages/dev/node/node",
     "pages/my/index"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "阀门开关控制",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -22,29 +22,18 @@
     "backgroundColor": "#fff",
     "list": [
       {
-        "pagePath": "pages/food/index",
-        "iconPath": "images/nav/my-off.png",
-        "selectedIconPath": "images/nav/my-on.png",
-        "text": "我的"
-      },
-      {
-        "pagePath": "pages/dev/terminal/terminal",
+        "pagePath": "pages/dev/tap",
         "iconPath": "images/nav/home-off.png",
         "selectedIconPath": "images/nav/home-on.png",
-        "text": "终端设备"
+        "text": "首页"
       },
       {
-        "pagePath": "pages/dev/node/node",
-        "iconPath": "images/nav/cart-off.png",
-        "selectedIconPath": "images/nav/cart-on.png",
-        "text": "节点设备"
-      },
-      {
-        "pagePath": "pages/dev/test/test",
+        "pagePath": "pages/my/index",
         "iconPath": "images/nav/my-off.png",
         "selectedIconPath": "images/nav/my-on.png",
         "text": "我的"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

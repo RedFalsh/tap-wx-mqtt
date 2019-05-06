@@ -18,6 +18,18 @@
 .iconSwitch:before {
   content: "\e9b9";
 }
+.iconSwitch-1:before {
+  content: "\e9b9";
+  color: #00ff00;
+}
+.iconSwitch-0:before {
+  content: "\e9b9";
+  color: #ff0000;
+}
+.iconSwitch-2:before {
+  content: "\e9b9";
+  color: #b3abab;
+}
 
 .iconfamen:before {
   content: "\e613";
