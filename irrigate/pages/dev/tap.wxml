@@ -1,44 +1,45 @@
 <view class="page">
-    <view>
-        <van-search value="{{ value }}" shape="round" placeholder="请输入设备名称/ID搜索" use-action-slot bind:search="onSearch">
-            <view slot="action" bind:tap="onSearch">搜索</view>
-        </van-search>
-    </view>
+  <view>
+    <van-search value="{{ value }}" shape="round" placeholder="请输入设备名称/ID搜索" use-action-slot bind:search="onSearch">
+      <view slot="action" bind:tap="onSearch">搜索</view>
+    </van-search>
+  </view>
 
-    <view class="page__bd">
-        <view wx:for="{{cloudsDevices}}" wx:key="*this" data-index='{{index}}' wx:for-item='item'
-              bindtap='jumpDeviceControl'>
-            <view class='item-deviceList'>
-                <!-- 图标 -->
-                <image class='dev-icon' src='../../images/dev/tap-blue.png'></image>
-                <!-- 名称 -->
-                <text class="dev-name">{{item.alias}}</text>
-                <!--设备位置-->
-                <!-- <text class="dev-position">{{item.position}}</text> -->
-                <!-- 设备状态显示 -->
-                <text class="tap-status-0" wx:if="{{item.status==0}}">已关闭</text>
-                <text class="tap-status-1" wx:elif="{{item.status==1}}">已开启</text>
-                <text class="tap-status-2" wx:elif="{{item.status==2}}">中间</text>
-                <text class="tap-status-0" wx:elif="{{item.status==3}}">开启中...</text>
-                <text class="tap-status-1" wx:elif="{{item.status==4}}">关闭中...</text>
-                
-                <!-- 设备开关按钮 -->
-                <button class="dev-sw" catchtap="onSwitch" data-index='{{index}}' data-status='{{item.status}}'>
-                    <image class="dev-sw-image" src='../../images/dev/tap-sw-close.png'
-                           wx:if="{{item.status==0}}"></image>
-                    <image class="dev-sw-image" src='../../images/dev/tap-sw-open.png'
-                           wx:elif="{{item.status==1}}"></image>
-                    <image class="dev-sw-image" src='../../images/dev/tap-sw-offline.png' wx:else></image>
-                </button>
+  <view class="page__bd">
+    <view wx:for="{{devices}}" wx:key="*this" data-index='{{index}}' wx:for-item='item'
+      bindtap='jumpDeviceControl'>
+      <view class='dev-list'>
+        <!-- 图标 -->
+        <image class='dev-icon' src='../../images/dev/tap-mid.png'></image>
+        <!-- 名称 -->
+        <text class="dev-name">{{item.name}}</text>
+        <!--设备位置-->
+        <!-- <text class="dev-position">{{item.position}}</text> -->
+        <!-- 设备状态显示 -->
+        <text class="tap-status-0" wx:if="{{item.status==0}}">已关闭</text>
+        <text class="tap-status-1" wx:elif="{{item.status==1}}">已开启</text>
+        <text class="tap-status-2" wx:elif="{{item.status==2}}">半开状态</text>
+        <text class="tap-status-0" wx:elif="{{item.status==3}}">开启中...</text>
+        <text class="tap-status-1" wx:elif="{{item.status==4}}">关闭中...</text>
 
-                <!-- 小程序是否在线，显示颜色不一样 -->
-                <text class="dev-alive-true" wx:if="{{item.online}}">在线</text>
-                <text class="dev-alive-false" wx:else>离线</text>
-
-                <image class='dev-icon' src='../../images/dev/next.png'></image>
-
-
-            </view>
+        <!-- 设备开关按钮 -->
+        <view class="btn-sw" hover-class="btn-sw-press" catchtap="onSwitch" data-index='{{index}}' data-status='{{item.status}}'>
+          <image class="btn-sw-image" src='../../images/dev/tap-sw-close.png'
+            wx:if="{{item.status==0}}"></image>
+          <image class="btn-sw-image" src='../../images/dev/tap-sw-open.png'
+            wx:elif="{{item.status==1}}"></image>
+          <image class="btn-sw-image" src='../../images/dev/tap-sw-offline.png' wx:else></image>
         </view>
+
+        <!-- 小程序是否在线，显示颜色不一样 -->
+        <text class="dev-alive-true" wx:if="{{item.online}}">在线</text>
+        <text class="dev-alive-false" wx:else>离线</text>
+        <image class='dev-icon' src='../../images/dev/next.png'></image>
+      </view>
     </view>
+    <view class="scan-btn" hover-class="scan-btn-press" bindtap="onScan">
+        <image class="scan-btn-img" src='../../images/scan.png'></image>
+    </view>
+
+  </view>
 </view>

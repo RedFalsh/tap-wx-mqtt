@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+      "van-datetime-picker": "../../utils/vant-weapp/lib/datetime-picker/index",
+      "van-popup": "../../utils/vant-weapp/lib/popup/index",
+      "van-button": "../../utils/vant-weapp/lib/button/index",
+      "van-picker": "../../utils/vant-weapp/lib/picker/index",
+      "van-cell": "../../utils/vant-weapp/lib/cell/index",
+      "van-cell-group": "../../utils/vant-weapp/lib/cell-group/index",
+      "van-radio": "../../utils/vant-weapp/lib/radio/index",
+      "van-radio-group": "../../utils/vant-weapp/lib/radio-group/index"
+  }
+}

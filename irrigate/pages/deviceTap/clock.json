@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-switch": "../../utils/vant-weapp/lib/switch/index",
+    "van-button": "../../utils/vant-weapp/lib/button/index"
+  }
+}

@@ -14,6 +14,28 @@ App({
     requestResult: '',
     client: null
   },
+  globalData: {
+    userInfo: null,
+    version: "1.0",
+    appName: "疆物联",
+    mqttConnectFlag: false,
+    domain: "http://192.168.232.137:5000/api",
+
+    server_domain: 'wss://15b3t97519.51mypc.cn/mqtt',
+    keepAliveInterval: 60,
+    userName:"admin",
+    password:"public",
+    clientId: function() {
+      var len = 16; //长度
+      var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+      var maxPos = $chars.length;
+      var pwd = 'WC_';
+      for (let i = 0; i < len; i++) {
+        pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+      }
+      return pwd;
+    },
+  },
   setOnMessageArrived: function(onMessageArrived) {
     if (typeof onMessageArrived === 'function') {
       this.data.onMessageArrived = onMessageArrived
@@ -62,13 +84,14 @@ App({
             //console.log("onConnectionLost:" + responseObject.errorMessage);
           }
         }
-        //console.log("connect success..")
+        that.globalData.mqttConnectFlag = true
+        console.log("connect success..")
         //连接成功mqtt服务器回调
         // console.log("连接服务器成功")
-        wx.showToast({
-          title: '连接成功',
-          duration: 3000
-        })
+        // wx.showToast({
+          // title: '连接成功',
+          // duration: 1000
+        // })
         mDeviceClouds.notifyConnectEvent(true)
       }
     });
@@ -86,12 +109,12 @@ App({
     mDeviceClouds.listenSubDeviceTopicEvent(true, function(device) {
       var client = that.data.client;
       if (client && client.isConnected()) {
-        //console.log('订阅成功');
+        console.log('订阅成功');
         return client.subscribe(device, {
           qos: 1
         });
       }
-      //console.log('订阅失败');
+      console.log('订阅失败');
     })
     // 发送消息给设备
     mDeviceClouds.listenWriteDeviceEvent(true, function(device, message, qos = 1, retained = false) {
@@ -106,27 +129,7 @@ App({
       }
     })
   },
-  globalData: {
-    userInfo: null,
-    version: "1.0",
-    shopName: "Python3 + Flask 订餐全栈系统",
-    domain: "http://127.0.0.1/wx",
 
-    server_domain: 'wss://15b3t97519.51mypc.cn/mqtt',
-    keepAliveInterval: 60,
-    userName:"admin",
-    password:"public",
-    clientId: function() {
-      var len = 16; //长度
-      var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
-      var maxPos = $chars.length;
-      var pwd = 'WC_';
-      for (let i = 0; i < len; i++) {
-        pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
-      }
-      return pwd;
-    },
-  },
   tip: function(params) {
     var that = this;
     var title = params.hasOwnProperty('title') ? params['title'] : '编程浪子提示您';

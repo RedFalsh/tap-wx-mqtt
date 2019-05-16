@@ -1,4 +1,4 @@
-.item-deviceList {
+.dev-list {
   height: 90rpx;
   display: flex;
   flex-direction: row;
@@ -39,17 +39,23 @@
   color: #8a8a8a;
 }
 
-.dev-sw {
-  /* background-color: #fff0; */
-  width: 100rpx;
-  height: 100rpx;
+.btn-sw {
+  width: 90rpx;
+  height: 90rpx;
+  border: solid 1px #B0B0B0;
+  border-radius: 30rpx;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
-.dev-sw-image {
-  /* top: 20rpx; */
-  margin-top: 20rpx;
-  margin-left: -13rpx;
-  /* margin-right: 20px; */
+.btn-sw-press {
+  background: #D0D0D0;
+  opacity: 0.7;
+  transform: scale(1.1,1.1);
+}
+
+.btn-sw-image {
   width: 64rpx;
   height:64rpx;
 }
@@ -83,3 +89,28 @@
   font-size: 0.8rem;
   color: #a19c9f;
 }
+
+.scan-btn {
+  width: 106rpx;
+  height: 106rpx;
+  border: solid 1px #ffffff;
+  border-radius: 53rpx;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.scan-btn-press {
+  background: #D0D0D0;
+  opacity: 0.7;
+  transform: scale(1.1,1.1);
+}
+
+.scan-btn-img {
+  width: 64rpx;
+  height: 64rpx;
+}
+

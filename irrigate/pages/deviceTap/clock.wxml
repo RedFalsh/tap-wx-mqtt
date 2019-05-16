@@ -1,0 +1,18 @@
+<view class="page">
+  <view wx:for="{{clocks}}" wx:key="*this" data-index='{{index}}' wx:for-item='item' bindtap='onJumpClockEdit'>
+    <view class='clock-row'>
+        <view class="time">
+            <view class="value">
+                <text>{{item.value}}</text>
+            </view>
+            <view class="period">
+                <text>{{item.period}}</text>
+            </view>
+        </view>
+        <van-switch data-index='{{index}}' checked="{{ item.alive }}" catchtap="onSwitch" size="24px" active-color="#07c160" inactive-color="#f44"/>
+    </view>
+  </view>
+  <view class='add_btn'>
+    <van-button size="large" type="info" bind:click="onAddTime">新增定时任务</van-button>
+  </view>
+</view>

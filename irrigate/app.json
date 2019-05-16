@@ -1,13 +1,15 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/dev/tap",
     "pages/deviceTap/deviceTap",
-    "pages/index/index",
+    "pages/deviceTap/clock",
+    "pages/deviceTap/clockSet",
     "pages/logs/logs",
     "pages/food/index",
     "pages/food/info",
-    "pages/my/index"
-
+    "pages/my/index",
+    "pages/dev/add"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,7 +27,7 @@
         "pagePath": "pages/dev/tap",
         "iconPath": "images/nav/home-off.png",
         "selectedIconPath": "images/nav/home-on.png",
-        "text": "首页"
+        "text": "设备"
       },
       {
         "pagePath": "pages/my/index",

@@ -15,14 +15,14 @@
 
 
         <view class="confirm-btn" bindtap='goToIndex' wx:if="{{regFlag==true}}">
-          <text>走，逛逛去</text>
+          <text>进入设备管理</text>
         </view>
 
         <button class="confirm-btn"  open-type="getUserInfo" bindgetuserinfo="login" wx:if="{{regFlag==false}}">
             授权登录
         </button>
 
-        <text class="copyright">@编程浪子 54php.cn</text>
+        <text class="copyright">大晴天科技有限公司</text>
       </view>
     </view>
   </block>

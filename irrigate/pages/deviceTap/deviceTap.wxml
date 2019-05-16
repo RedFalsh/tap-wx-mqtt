@@ -1,9 +1,11 @@
-<view class="container">
-    <view>
-        <image src="../../images/dev/tap.png" class='imgImage'></image>
-    </view>
+<view class="container" style="background: {{bgColor}}">
+    <image src="../../images/dev/tap-big.png" class='imgImage'></image>
     <view class="status">
-      <text>阀门已经打开</text>
+        <text wx:if="{{status==0}}">阀门已关闭</text>
+        <text wx:elif="{{status==1}}">阀门已开启</text>
+        <text wx:elif="{{status==2}}">阀门处于半开状态</text>
+        <text wx:elif="{{status==3}}">阀门正在开启中...</text>
+        <text wx:elif="{{status==4}}">阀门正在关闭中...</text>
     </view>
     <view class="btn-row">
         <view class="btn" hover-class="btn-press" bindtap="onSwitch">

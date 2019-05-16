@@ -3,6 +3,8 @@ var cmd = require('../../utils/cmd.js');
 
 Page({
   data: {
+    status: null,
+    alias: null,
     devicePubTopic: null,
     deviceSubTopic: null,
     pathLightOpen: '../../resoures/png/deviceStatus/light_on.jpg',
@@ -11,6 +13,7 @@ Page({
     lightValue: 0,
     valueSlier: 0,
     valuePic: '../../images/dev/tap_128.png',
+    bgColor:'radial-gradient(ellipse, #808080, #484848,#303030)',
   },
   callBackDeviceStatus: function(topic, payload) {
     //此处判断服务器的下发主题和此设备的主题是否一致！
@@ -27,8 +30,21 @@ Page({
     console.log("拿到上个界面传来的设备信息：" + options.devicePubTopic);
     this.setData({
       devicePubTopic: options.devicePubTopic,
-      deviceSubTopic: options.deviceSubTopic
+      deviceSubTopic: options.deviceSubTopic,
+      status: options.status,
+      alias: options.alias
     })
+    console.log(options)
+    if(options.status == 0){
+      this.setData({
+        bgColor: 'radial-gradient(ellipse, #808080, #484848,#303030)',
+      })
+    }
+    if (options.status == 1) {
+      this.setData({
+        bgColor: 'radial-gradient(ellipse, #0066FF, #0033CC, #0000CC)',
+      })
+    }
 
     wx.setNavigationBarTitle({
       title: options.alias
@@ -84,6 +100,8 @@ Page({
   },
 
   onTime: function () {
-    console.log("onTime")
+    wx.navigateTo({
+      url: "../deviceTap/clock?devicePubTopic=" + this.data.devicePubTopic + "&deviceSubTopic=" + this.data.deviceSubTopic + "&alias=" + this.data.alias
+    })
   }
 })

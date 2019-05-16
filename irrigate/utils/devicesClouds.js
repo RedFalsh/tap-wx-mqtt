@@ -30,7 +30,7 @@ function notifyDeviceStatusEvent(topic, status) {
   mOnFire.fire(EVENT_MQTT_DEVICE_PUB, topic, status);
 }
 
-//推送控制设备消息 device作为一个对象 
+//推送控制设备消息 device作为一个对象
 function notifyWriteDeviceEvent(device, payload, qos = 0, retained = false) {
   mOnFire.fire(EVENT_MQTT_DEVICE_SUB, device, payload, qos, retained);
 }

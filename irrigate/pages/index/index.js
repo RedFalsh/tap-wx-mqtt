@@ -10,7 +10,7 @@ Page({
   },
   goToIndex: function () {
     wx.switchTab({
-      url: '/pages/dev/node',
+      url: '/pages/dev/tap',
       success: res => {
 
         console.log(res);
@@ -26,10 +26,11 @@ Page({
   },
   onLoad: function () {
     wx.setNavigationBarTitle({
-      title: app.globalData.shopName
+      title: app.globalData.appName
     });
     this.checkLogin();
   },
+
   onShow: function () {
 
   },
@@ -75,7 +76,6 @@ Page({
               });
               return;
             }
-
             app.setCache("token", res.data.data.token);
             that.goToIndex();
           }
