@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "van-search": "../../utils/vant-weapp/lib/search/index",
+    "van-toast": "../../utils/vant-weapp/lib/icon/index",
     "van-icon": "../../utils/vant-weapp/lib/icon/index",
     "van-switch": "../../utils/vant-weapp/lib/switch/index"
   }

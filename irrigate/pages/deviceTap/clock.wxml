@@ -1,5 +1,5 @@
 <view class="page">
-  <view wx:for="{{clocks}}" wx:key="*this" data-index='{{index}}' wx:for-item='item' bindtap='onJumpClockEdit'>
+  <view wx:for="{{clocks}}" wx:key="*this" data-index='{{index}}' data-id='{{item.id}}' wx:for-item='item' bindlongpress="onDeleteTime" bindtap='onJumpClockEdit'>
     <view class='clock-row'>
         <view class="time">
             <view class="value">
@@ -16,3 +16,5 @@
     <van-button size="large" type="info" bind:click="onAddTime">新增定时任务</van-button>
   </view>
 </view>
+
+<van-dialog id="van-dialog" />

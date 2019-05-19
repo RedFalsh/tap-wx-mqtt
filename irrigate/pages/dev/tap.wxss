@@ -63,7 +63,7 @@
 .tap-status-0 {
   margin-left: 10px;
   font-size: 0.8rem;
-  color: #f00;
+  color: #ccc;
 }
 
 .tap-status-1 {

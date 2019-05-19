@@ -1,79 +1,87 @@
-var mClock = require('../../utils/clockEvents.js');
-var clock = require('../../test/tap-clock.js');
+
+import Dialog from '../../utils/vant-weapp/dist/dialog/dialog';
+var app = getApp();
 
 Page({
 
   data: {
-      sn: '29e90c3d0',
-      clocks: null,
-      openTime: null,
-      closeTime: null,
+    sn: null,
+    clocks: null,
+    open_time: null,
+    close_time: null,
   },
 
   onLoad: function (options) {
-    // 获取设备的定时任务数据
+    // 获取上个页面传过来的设备sn
     this.setData({
-        clocks:clock.clocks
+      sn: options.sn
     })
-    this.updateValue()
-    //设置监听函数
-    mClock.listenSetTimeEvent(true, this.callBackSetTime);
   },
 
   onUnload: function () {
-    //取消监听函数，释放内存
-    mClock.listenSetTimeEvent(false, this.callBackSetTime);
   },
 
-  updateValue: function (){
-    var clocks = this.data.clocks
-    for(var i=0; i<clocks.length;i++)
-    {
-      if(clocks[i].openTime && clocks[i].closeTime)
-        clocks[i].value = "开启时段:" + clocks[i].openTime + ' - ' + clocks[i].closeTime
-      else if(clocks[i].openTime)
-        clocks[i].value = "开启时刻:" + clocks[i].openTime
-      else if(clocks[i].closeTime)
-        clocks[i].value = "关闭时刻:" + clocks[i].closeTime
-    }
-    this.setData({
-      clocks: clocks
-    })
-  },
-  // 监听回调函数, 设定定时传回数据
-  callBackSetTime: function(period, openTime, closeTime) {
-    //此处判断服务器的下发主题和此设备的主题是否一致！
-    console.log("定时设置状态回调:" + period);
-    console.log("定时设置状态回调:" + openTime);
-    console.log("定时设置状态回调:" + closeTime);
-    var jsonObj = new Object();
-    jsonObj.period = period;
-    jsonObj.openTime = openTime;
-    jsonObj.closeTime = closeTime;
-    jsonObj.alive = true;
-    jsonObj.value = '';
-
-    var clocks = this.data.clocks;
-    clocks.push(jsonObj);
-    console.log(clocks);
-    this.setData({
-      clocks: clocks
-    })
-    this.updateValue()
+  onShow: function(){
+    this.getTimes()
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+  // 获取定时列表
+  getTimes:function(){
+    var that = this
+    var sn = that.data.sn
+    wx.request({
+      url: app.buildUrl('/device/time/list'),
+      header: app.getRequestHeader(),
+      data: {sn: sn},
+      success: function (res) {
+        if (res.data.code != 200) {
+          console.log('获取定时信息失败')
+          return
+        }
+        console.log('获取定时信息成功')
+        console.log(res.data.data)
+        var clocks = res.data.data
+        for(var i=0; i<clocks.length;i++)
+        {
+          if(clocks[i].open_time == 'null') {
+            clocks[i].open_time = ''
+          }
+          if(clocks[i].close_time == 'null') {
+            clocks[i].close_time = ''
+          }
+          if(clocks[i].open_time && clocks[i].close_time)
+            clocks[i].value = "开启时段:" + clocks[i].open_time + ' - ' + clocks[i].close_time
+          else if(clocks[i].open_time)
+            clocks[i].value = "开启时刻:" + clocks[i].open_time
+          else if(clocks[i].close_time)
+            clocks[i].value = "关闭时刻:" + clocks[i].close_time
 
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+          if(clocks[i].type==1)
+          {
+            clocks[i].period="执行一次"
+          }
+          if(clocks[i].type==2)
+          {
+            clocks[i].period="每天"
+          }
+          if(clocks[i].type==3)
+          {
+            clocks[i].period="工作日"
+          }
+          if(clocks[i].type==4)
+          {
+            clocks[i].period="周末"
+          }
+          if(clocks[i].type==5)
+          {
+            clocks[i].period="自定义"
+          }
+        }
+        that.setData({
+          clocks: clocks
+        })
+      }
+    });
   },
 
   onAddTime: function () {
@@ -82,11 +90,43 @@ Page({
     })
   },
 
+  onDeleteTime: function (e) {
+    var that = this
+    var id = e.currentTarget.dataset.id
+    var sn = that.data.sn
+    Dialog.confirm({
+      title: '删除',
+      message: '确认要删除此定时任务么?'
+    }).then(() => {
+      // on confirm
+      wx.request({
+        url: app.buildUrl('/device/time/delete'),
+        header: app.getRequestHeader(),
+        method: 'POST',
+        data: {sn: sn,id: id},
+        success: function (res) {
+          if (res.data.code != 200) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 1000
+            })
+            return
+          }
+          that.getTimes()
+        }
+      });
+    }).catch(() => {
+      // on cancel
+    });
+  },
+
   onJumpClockEdit: function(e) {
     var id = e.currentTarget.dataset.index;
     var clocks = this.data.clocks;
     wx.navigateTo({
-      url: "../deviceTap/clockSet?type=edit" +"&period="+clocks[id].period + "&openTime=" + clocks[id].openTime+ "&closeTime=" + clocks[id].closeTime + "&sn=" + this.data.sn
+      url: "../deviceTap/clockSet?type=edit"+"&id="+clocks[id].id +"&period="+clocks[id].period + "&open_time=" + clocks[id].open_time+ "&close_time=" + clocks[id].close_time + "&sn=" + this.data.sn
+      // url: "../deviceTap/clockSet?type=edit" +"&period="+clocks[id].period + "&open_time=" + clocks[id].open_time+ "&close_time=" + clocks[id].close_time + "&sn=" + this.data.sn
     })
   },
 

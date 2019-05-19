@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "van-switch": "../../utils/vant-weapp/lib/switch/index",
+    "van-dialog": "../../utils/vant-weapp/lib/dialog/index",
     "van-button": "../../utils/vant-weapp/lib/button/index"
   }
 }

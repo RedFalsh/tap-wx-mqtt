@@ -24,7 +24,7 @@
 
         <!-- 设备开关按钮 -->
         <view class="btn-sw" hover-class="btn-sw-press" catchtap="onSwitch" data-index='{{index}}' data-status='{{item.status}}'>
-          <image class="btn-sw-image" src='../../images/dev/tap-sw-close.png'
+          <image class="btn-sw-image" src='../../images/dev/tap-sw-offline.png'
             wx:if="{{item.status==0}}"></image>
           <image class="btn-sw-image" src='../../images/dev/tap-sw-open.png'
             wx:elif="{{item.status==1}}"></image>

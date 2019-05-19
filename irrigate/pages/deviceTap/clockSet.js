@@ -1,8 +1,11 @@
 var mClock = require('../../utils/clockEvents.js');
 
+var app = getApp();
 Page({
 
   data: {
+    id: null,
+    sn: null,
     type: null,
 
     currentDate: '12:00',
@@ -16,7 +19,7 @@ Page({
     },
     // 打开关闭时间
     period:{
-      value: '',
+      value: '执行一次',
       flag: false,
       custom: {
         Monday: false,
@@ -48,15 +51,18 @@ Page({
       var close = this.data.close
 
       period.value = options.period
-      open.time= options.openTime
-      close.time= options.closeTime
+      open.time= options.open_time
+      close.time= options.close_time
       this.setData({
+        sn: options.sn,
+        id: options.id,
         period:period,
         open:open,
         close:close
       })
     }
     this.setData({
+      type: options.type,
       sn: options.sn
     })
   },
@@ -64,6 +70,7 @@ Page({
   onUnload: function () {
 
   },
+
   // 时间滚轮响应事件
   onInput(event) {
     const { detail, currentTarget } = event;
@@ -132,6 +139,7 @@ Page({
       close:close
     })
   },
+
   onCloseTime() {
     this.toggleTimePopup()
   },
@@ -201,8 +209,103 @@ Page({
   },
   // 设置时间
   onSetTime() {
-    mClock.notifySetTimeEvent(this.data.period.value, this.data.open.time,this.data.close.time)
-    wx.navigateBack()
+    // mClock.notifySetTimeEvent(this.data.period.value, this.data.open.time,this.data.close.time)
+    // console.log(this.data.period.value, this.data.open.time,this.data.close.time)
+    var that = this
+    var value = that.data.period.value
+    if(!value){
+      app.alert({'content':'请设置重复周期'})
+      return
+    }
+    var open_time =  that.data.open.time
+    var close_time= that.data.close.time
+    if(!open_time & !close_time){
+      app.alert({'content':'请设置开启时间或关闭时间！'})
+      return
+    }
+    var type = 1
+    var period = new Array()
+    if(value== "执行一次") {
+      type = 1
+      period.push(1)
+    }
+    if(value == "每天") {
+      type = 2
+      period = [1,2,3,4,5,6,7]
+    }
+    if(value == "工作日") {
+      type = 3
+      period = [1,2,3,4,5]
+    }
+    if(value == "周末") {
+      type = 4
+      period = [6,7]
+    }
+    if(value == "自定义") {
+      type = 5
+      if(custom.Monday)
+        period.push(1)
+      if(custom.Tuesday)
+        period.push(2)
+      if(custom.Wednesday)
+        period.push(3)
+      if(custom.Thursday)
+        period.push(4)
+      if(custom.Friday)
+        period.push(5)
+      if(custom.Staurday)
+        period.push(6)
+      if(custom.Sunday)
+        period.push(7)
+    }
+    var data = new Object()
+    data.sn = that.data.sn
+    data.type = type
+    data.period = period
+    data.open_time = that.data.open.time
+    data.close_time = that.data.close.time
+    console.log(data)
+    if(that.data.type == 'add')
+    {
+      wx.request({
+        url: app.buildUrl('/device/time/add'),
+        header: app.getRequestHeader(),
+        method: 'POST',
+        data: data,
+        success: function (res) {
+          if (res.data.code != 200) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 1000
+            })
+            return
+          }
+          wx.navigateBack()
+        }
+      });
+    }
+    if(that.data.type == 'edit')
+    {
+      data.id = this.data.id
+      wx.request({
+        url: app.buildUrl('/device/time/edit'),
+        header: app.getRequestHeader(),
+        method: 'POST',
+        data: data,
+        success: function (res) {
+          if (res.data.code != 200) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 1000
+            })
+            return
+          }
+          wx.navigateBack()
+        }
+      });
+    }
   },
   // 清除时间设置
   onClearTime(e) {

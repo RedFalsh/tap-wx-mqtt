@@ -8,13 +8,12 @@
     "pages/logs/logs",
     "pages/food/index",
     "pages/food/info",
-    "pages/my/index",
-    "pages/dev/add"
+    "pages/my/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "阀门开关控制",
+    "navigationBarTitleText": "疆物联",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

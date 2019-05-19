@@ -18,8 +18,8 @@ Page({
     })
     if(app.globalData.mqttConnectFlag){
       wx.showLoading({
-      title: '设备加载中...',
-      duration:1000
+        title: '设备加载中...',
+        duration:1000
       })
       this.getDevices()
       //设置监听函数,设备监听
@@ -82,11 +82,11 @@ Page({
 
       //拿到模拟数据的主题，开始订阅设备主题，小伙伴自行设计逻辑，比如拿到用户绑定的设备列表，一个一个去订阅
       // for (var i = 0; i < this.data.devices.length; i++) {
-        // let topic = this.data.devices[i].devicePubTopic;
-        // if (this.data.devices[i].online) {
-          // //console.log('此设备在线，我们订阅设备推送的主题：' + topic);
-          // mDevicesClouds.notifySubDeviceTopicEvent(topic);
-        // }
+      // let topic = this.data.devices[i].devicePubTopic;
+      // if (this.data.devices[i].online) {
+      // //console.log('此设备在线，我们订阅设备推送的主题：' + topic);
+      // mDevicesClouds.notifySubDeviceTopicEvent(topic);
+      // }
       // }
     } else {
       wx.showToast({
@@ -100,8 +100,8 @@ Page({
   //开关按键触发
   onSwitch: function (e) {
     var device = this.data.devices[e.currentTarget.dataset.index];
-    console.log("onSwitch success :" + e.currentTarget.dataset.status);
     var status = e.currentTarget.dataset.status;
+
     if (device.online)
     {
       var jsonObj = new Object();
@@ -126,16 +126,24 @@ Page({
       console.log('msg:' + JSON.stringify(jsonObj))
       mDevicesClouds.notifyWriteDeviceEvent(device.sub, JSON.stringify(jsonObj));
     }
+    else{
+      wx.showToast({
+        title: '操作失败, 设备离线',
+        icon: 'none',
+        duration: 1000
+      })
+    }
   },
 
   // 跳转到设备详情页面
   jumpDeviceControl: function (e) {
     var device = this.data.devices[e.currentTarget.dataset.index];
-    //设备是否在线？如果在线则可以跳转
+    // 设备是否在线？如果在线则可以跳转
     switch (device.type) {
       case 'tap':
         wx.navigateTo({
-          url: "../deviceTap/deviceTap?devicePubTopic=" + device.devicePubTopic + "&sub=" + device.sub + "&alias=" + device.alias + "&status=" + device.status
+          // url: "../deviceTap/deviceTap?sn=" + device.sn + "&pub=" + device.pub + "&sub=" + device.sub + "&name=" + device.name + "&status=" + device.status
+          url: "../deviceTap/deviceTap?sn=" + device.sn + "&pub=" + device.pub + "&sub=" + device.sub + "&name=" + device.name + "&status=" + device.status + "&online=" + device.online
         })
         break;
       case 'outlet':
