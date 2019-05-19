@@ -102,7 +102,6 @@ Page({
       wx.request({
         url: app.buildUrl('/device/time/delete'),
         header: app.getRequestHeader(),
-        method: 'POST',
         data: {sn: sn,id: id},
         success: function (res) {
           if (res.data.code != 200) {

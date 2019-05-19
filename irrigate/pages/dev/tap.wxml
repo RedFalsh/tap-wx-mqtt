@@ -6,8 +6,14 @@
   </view>
 
   <view class="page__bd">
-    <view wx:for="{{devices}}" wx:key="*this" data-index='{{index}}' wx:for-item='item'
-      bindtap='jumpDeviceControl'>
+    <view wx:for="{{devices}}"
+      wx:key="*this"
+      data-index='{{index}}'
+      data-sn='{{item.sn}}'
+      wx:for-item='item'
+      bindtap='jumpDeviceControl'
+      bindlongpress="onDeleteDevice">
+
       <view class='dev-list'>
         <!-- 图标 -->
         <image class='dev-icon' src='../../images/dev/tap-mid.png'></image>
@@ -43,3 +49,5 @@
 
   </view>
 </view>
+
+<van-dialog id="van-dialog" />

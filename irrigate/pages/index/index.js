@@ -1,4 +1,5 @@
 //login.js
+var mDeviceClouds = require('../../utils/devicesClouds.js');
 //获取应用实例
 var app = getApp();
 Page({
@@ -78,6 +79,7 @@ Page({
             }
             app.setCache("token", res.data.data.token);
             that.goToIndex();
+            // mDeviceClouds.notifyDoConnectEvent(res.data.data.token);
           }
         });
       }

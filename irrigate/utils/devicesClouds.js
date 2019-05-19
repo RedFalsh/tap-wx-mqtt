@@ -8,6 +8,7 @@
 var mOnFire = require("onfire.js");
 
 var FLAG_EVENT = 'FLAG_EVENT';
+var EVENT_DO_CONNECT = 'EVENT_DO_CONNECT';
 var EVENT_CONNECT_SUCCESS = 'EVENT_CONNECT_SUCCESS';
 var EVENT_CONNECT_FAIL = 'EVENT_CONNECT_FAIL';
 var EVENT_CONNECT_LOST = 'EVENT_CONNECT_LOST';
@@ -17,6 +18,11 @@ var EVENT_MQTT_DEVICE_SUB_TOPIC = 'EVENT_MQTT_DEVICE_SUB_TOPIC';
 
 
 /*******      实现方法    *******/
+//设备状态消息推送回调 topic是主题 ，status是mqtt的payload部分
+function notifyDoConnectEvent(clientId) {
+  mOnFire.fire(EVENT_DO_CONNECT, clientId);
+}
+
 //连接服务器回调
 function notifyConnectEvent(isConnected) {
   if (isConnected)
@@ -57,6 +63,17 @@ function listenConnectEvent(isSetListener, funtion) {
 }
 
 //监听设备主动推送的监听回调
+function listenDoConnectEvent(isSetListener, funtion) {
+  //方法重载，根据参数个数判断是否设置监听或取消监听
+  if (isSetListener) {
+    mOnFire.on(EVENT_DO_CONNECT, funtion)
+  } else {
+    //传入方法，取消监听回调
+    mOnFire.un(funtion)
+  }
+}
+
+//监听设备主动推送的监听回调
 function listenDeviceStatusEvent(isSetListener, funtion) {
   //方法重载，根据参数个数判断是否设置监听或取消监听
   if (isSetListener) {
@@ -92,6 +109,10 @@ function listenSubDeviceTopicEvent(isSetListener, funtion) {
 
 
 module.exports = {
+  //本地连接mqtt服务器回调
+  notifyDoConnectEvent: notifyDoConnectEvent,
+  listenDoConnectEvent: listenDoConnectEvent,
+
   //本地连接mqtt服务器回调
   notifyConnectEvent: notifyConnectEvent,
   listenConnectEvent: listenConnectEvent,

@@ -25,6 +25,7 @@ App({
     keepAliveInterval: 60,
     userName:"admin",
     password:"public",
+    //请保持唯一，一旦多个客户端用相同的clientID连接服务器就会挤掉之前的链接，后者先得。
     clientId: function() {
       var len = 16; //长度
       var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
@@ -34,7 +35,7 @@ App({
         pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
       }
       return pwd;
-    },
+    }
   },
   setOnMessageArrived: function(onMessageArrived) {
     if (typeof onMessageArrived === 'function') {
@@ -104,6 +105,13 @@ App({
     setTimeout(function() {
       that.doConnect();
     }, 800)
+    // 等待用户进入设备页面后连接mqtt
+    // mDeviceClouds.listenDoConnectEvent(true, function(clientId) {
+      // // that.globalData.clientId = clientId
+      // setTimeout(function() {
+      // that.doConnect();
+      // }, 500)
+    // })
 
     // 订阅某个设备推送状态函数：参数 device对象
     mDeviceClouds.listenSubDeviceTopicEvent(true, function(device) {

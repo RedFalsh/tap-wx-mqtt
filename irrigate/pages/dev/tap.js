@@ -1,12 +1,12 @@
 var mDevicesClouds = require('../../utils/devicesClouds.js');
 //模拟数据获取，小伙伴项目可以去自己的服务器请求数据。
-var postData = require('../../test/tap-data.js');
-
+// var postData = require('../../test/tap-data.js');
 var cmd = require('../../utils/cmd.js');
+import Dialog from '../../utils/vant-weapp/dist/dialog/dialog';
 var app = getApp();
 Page({
   data: {
-    devicesCloudsDatas: postData,
+    // devicesCloudsDatas: postData,
     cloudsDevices: null,
     devices: null
   },
@@ -43,11 +43,12 @@ Page({
     console.log("设备状态回调:");
     console.log("topic:" + topic);
     console.log("payload:" + payload);
-
-    var devices = this.data.devices
+    var that = this
+    var devices = that.data.devices
     for (var i = 0; i < devices.length; i++){
-      if (devices[i].devicePubTopic == topic){
+      if (devices[i].pub == topic){
         var jsonObj = JSON.parse(payload);
+        console.log(jsonObj);
         switch(jsonObj.code){
           case cmd.TAP_STATUS:
             devices[i].status = jsonObj.msg
@@ -61,8 +62,8 @@ Page({
       }
     }
     // 根据回调信息信息刷新界面设备状态
-    this.setData({
-      cloudsDevices: devices
+    that.setData({
+      devices: devices
     })
   },
 
@@ -159,6 +160,7 @@ Page({
   // 扫一扫添加设备
   onScan: function(e){
     console.log(e)
+    var that = this
     wx.scanCode({
       success: (res) => {
         var jsonObj = JSON.parse(res.result)
@@ -183,6 +185,7 @@ Page({
               icon: 'none',
               duration: 1000
             })
+            that.getDevices()
           }
         });
       },
@@ -190,6 +193,21 @@ Page({
         console.log(res);
       }
     })
+  },
+
+  doSubscribe: function(){
+    var that = this
+    var devices = that.data.devices
+    if (app.globalData.mqttConnectFlag){
+      for (var i = 0; i < devices.length; i++) {
+        let topic = devices[i].pub;
+        // if (devices[i].online) {
+          //console.log('此设备在线，我们订阅设备推送的主题：' + topic);
+          mDevicesClouds.notifySubDeviceTopicEvent(topic);
+          console.log('订阅:'+topic)
+        // }
+      }
+    }
   },
 
   // 获取设备
@@ -209,21 +227,40 @@ Page({
         that.setData({
           devices: devices
         })
-        console.log(app.globalData.mqttConnectFlag)
-        // if(app.globalData.mqttConnectFlag)
-        // {
-        for (var i = 0; i < devices.length; i++) {
-          let topic = devices[i].pub;
-          if (devices[i].online) {
-            //console.log('此设备在线，我们订阅设备推送的主题：' + topic);
-            mDevicesClouds.notifySubDeviceTopicEvent(topic);
-            console.log('订阅:'+topic)
-          }
-        }
-        // }
-
+        that.doSubscribe()
       }
     });
-  }
+  },
+
+  // 删除设备
+  onDeleteDevice:function(e){
+    var that = this
+    var sn = e.currentTarget.dataset.sn
+    Dialog.confirm({
+      title: '删除',
+      message: '确认要删除此设备么?'
+    }).then(() => {
+      // on confirm
+      wx.request({
+        url: app.buildUrl('/device/delete'),
+        header: app.getRequestHeader(),
+        data: {sn: sn},
+        success: function (res) {
+          if (res.data.code != 200) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 1000
+            })
+            return
+          }
+          that.getDevices()
+        }
+      });
+    }).catch(() => {
+      // on cancel
+    });
+  },
+
 
 })
