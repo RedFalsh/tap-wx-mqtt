@@ -219,8 +219,12 @@ Page({
     }
     var open_time =  that.data.open.time
     var close_time= that.data.close.time
-    if(!open_time & !close_time){
-      app.alert({'content':'请设置开启时间或关闭时间！'})
+    if (!open_time & !close_time) {
+      app.alert({ 'content': '请设置开启时间或关闭时间！' })
+      return
+    }
+    if(open_time == close_time){
+      app.alert({ 'content': '开启时间和关闭时间不能相同！' })
       return
     }
     var type = 1
@@ -261,6 +265,7 @@ Page({
     var data = new Object()
     data.sn = that.data.sn
     data.type = type
+    data.alive = 1
     data.period = period
     data.open_time = that.data.open.time
     data.close_time = that.data.close.time

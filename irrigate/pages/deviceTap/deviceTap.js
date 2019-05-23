@@ -40,10 +40,6 @@ Page({
     // 设备信息从服务器获取
     this.getDeviceInfo(options.sn)
 
-    wx.setNavigationBarTitle({
-      title: options.name
-    })
-
     //设置监听函数
     mDeviceClouds.listenDeviceStatusEvent(true, this.callBackDeviceStatus);
   },
@@ -141,9 +137,16 @@ Page({
     }
   },
 
-  // onClock: function(){
-    // console.log("onClock")
-  // },
+  onSet: function(){
+    var device = this.data.device
+    var options = ""
+    for(var key in device){
+      options += '&'+key+'='+device[key]
+    }
+    wx.navigateTo({
+      url: "../deviceTap/set?" + options.substring(1)
+    })
+  },
 
   onTime: function () {
     var device = this.data.device

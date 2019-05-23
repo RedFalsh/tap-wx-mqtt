@@ -19,7 +19,8 @@ App({
     version: "1.0",
     appName: "疆物联",
     mqttConnectFlag: false,
-    domain: "http://192.168.232.137:5000/api",
+    // domain: "http://192.168.232.137:5000/api",
+    domain: "http://15b3t97519.51mypc.cn/api",
 
     server_domain: 'wss://15b3t97519.51mypc.cn/mqtt',
     keepAliveInterval: 60,

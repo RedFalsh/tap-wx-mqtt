@@ -11,11 +11,11 @@
         <view class="btn" hover-class="btn-press" bindtap="onSwitch">
             <image class="btn-img" src='../../images/dev/tap-sw-offline.png'></image>
         </view>
-        <!-- <view class="btn" hover-class="btn-press" bindtap="onClock"> -->
-            <!-- <image class="btn-img" src="../../images/dev/clock-white.png"></image> -->
-        <!-- </view> -->
         <view class="btn" hover-class="btn-press" bindtap="onTime">
             <image class="btn-img" src="../../images/dev/time-white.png"></image>
+        </view>
+        <view class="btn" hover-class="btn-press" bindtap="onSet">
+            <image class="btn-img" src="../../images/dev/set.png"></image>
         </view>
     </view>
 </view>
@@ -33,11 +33,11 @@
         <view class="btn" hover-class="btn-press" bindtap="onSwitch">
             <image class="btn-img" src='../../images/dev/tap-sw-offline.png'></image>
         </view>
-        <!-- <view class="btn" hover-class="btn-press" bindtap="onClock"> -->
-            <!-- <image class="btn-img" src="../../images/dev/clock-white.png"></image> -->
-        <!-- </view> -->
         <view class="btn" hover-class="btn-press" bindtap="onTime">
             <image class="btn-img" src="../../images/dev/time-white.png"></image>
+        </view>
+        <view class="btn" hover-class="btn-press" bindtap="onSet">
+            <image class="btn-img" src="../../images/dev/set.png"></image>
         </view>
     </view>
 </view>

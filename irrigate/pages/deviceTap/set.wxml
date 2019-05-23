@@ -1,0 +1,9 @@
+<view class="page">
+  <van-cell title="重命名" is-link  bind:click="onName" value="{{device.name}}"/>
+  <van-cell title="位置管理" is-link bind:click="onPosition" value="{{device.sn}}"/>
+  <van-cell title="操作记录" is-link bind:click="onOperateLog"/>
+  <van-cell title="删除设备" is-link bind:click="onDelete"/>
+</view>
+
+<van-dialog id="van-dialog" />
+

@@ -130,16 +130,50 @@ Page({
   },
 
   onSwitch: function (e) {
-    var idx = e.currentTarget.dataset.index;
-    var clocks = this.data.clocks;
-    if(clocks[idx].alive){
-      clocks[idx].alive = false;
+    var that = this
+    var clocks = that.data.clocks;
+    var index = e.currentTarget.dataset.index;
+    // request数据
+    var data = new Object()
+    data.sn = that.data.sn
+    data.id = clocks[index].id
+    var alive = clocks[index].alive
+    if(alive){
+      data.alive = 0
     }
     else{
-      clocks[idx].alive = true;
+      data.alive = 1
     }
-    this.setData({
-      clocks: clocks
-    })
+
+    wx.request({
+      url: app.buildUrl('/device/time/edit'),
+      header: app.getRequestHeader(),
+      data: data,
+      success: function (res) {
+        if (res.data.code != 200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1000
+          })
+          return
+        }
+        // 成功
+        clocks[index].alive = !clocks[index].alive
+        that.setData({
+          clocks: clocks
+        })
+      }
+    });
+    // var clocks = this.data.clocks;
+    // if(clocks[id].alive == 1){
+      // clocks[id].alive = 0;
+    // }
+    // else{
+      // clocks[id].alive = 1;
+    // }
+    // this.setData({
+      // clocks: clocks
+    // })
   }
 })

@@ -25,8 +25,8 @@
         <text class="tap-status-0" wx:if="{{item.status==0}}">已关闭</text>
         <text class="tap-status-1" wx:elif="{{item.status==1}}">已开启</text>
         <text class="tap-status-2" wx:elif="{{item.status==2}}">半开状态</text>
-        <text class="tap-status-0" wx:elif="{{item.status==3}}">开启中...</text>
-        <text class="tap-status-1" wx:elif="{{item.status==4}}">关闭中...</text>
+        <text class="tap-status-1" wx:elif="{{item.status==3}}">开启中...</text>
+        <text class="tap-status-0" wx:elif="{{item.status==4}}">关闭中...</text>
 
         <!-- 设备开关按钮 -->
         <view class="btn-sw" hover-class="btn-sw-press" catchtap="onSwitch" data-index='{{index}}' data-status='{{item.status}}'>

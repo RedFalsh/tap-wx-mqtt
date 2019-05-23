@@ -31,6 +31,16 @@ Page({
 
   },
 
+  onPullDownRefresh(){
+    if(app.globalData.mqttConnectFlag){
+      wx.showLoading({
+        title: '设备加载中...',
+        duration:1000
+      })
+      this.getDevices()
+    }
+  },
+
   onUnload: function () {
     console.log("onUnload")
     //这个是取消监听服务器的连接回调
@@ -125,6 +135,7 @@ Page({
       }
       console.log('topic:' + device.sub)
       console.log('msg:' + JSON.stringify(jsonObj))
+      // var topic = '/dev/' + device.sn + '/sub'
       mDevicesClouds.notifyWriteDeviceEvent(device.sub, JSON.stringify(jsonObj));
     }
     else{

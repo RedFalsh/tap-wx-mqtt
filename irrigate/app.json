@@ -8,7 +8,8 @@
     "pages/logs/logs",
     "pages/food/index",
     "pages/food/info",
-    "pages/my/index"
+    "pages/my/index",
+    "pages/deviceTap/set"
   ],
   "window": {
     "backgroundTextStyle": "light",
