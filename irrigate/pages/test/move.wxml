@@ -1,0 +1,5 @@
+<!--pages/test/move.wxml-->
+<movable-area style="height: 200px;width: 200px;background: red;">
+ <movable-view direction="all" style="height: 50px; width: 50px; background: blue;">
+ </movable-view>
+</movable-area>

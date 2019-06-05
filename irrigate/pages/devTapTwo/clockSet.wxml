@@ -1,0 +1,100 @@
+<view class="page">
+    <view class="item-list" catchtap='togglePeridPopup' data-value="period">
+        <image class='item-icon' src='../../images/dev/next.png' wx:if="{{period.flag}}"></image>
+        <view class='item-icon' wx:else></view>
+        <text class="item-title">重复</text>
+        <text class="item-time" wx:if="{{period.value}}">{{period.value}}</text>
+        <text class="item-time" wx:else>未设置</text>
+        <view class="item-btn" hover-class="item-btn-press" catchtap="onClearTime" data-value="period">
+            <text>清除</text>
+        </view>
+    </view>
+    <view class="item-list" catchtap='toggleTimePopup' data-value="open">
+        <image class='item-icon' src='../../images/dev/next.png' wx:if="{{open.flag}}"></image>
+        <view class='item-icon' wx:else></view>
+        <text class="item-title">开启时间</text>
+        <text class="item-time" wx:if="{{open.time}}">{{open.time}}</text>
+        <text class="item-time" wx:else>未设置</text>
+        <view class="item-btn" hover-class="item-btn-press" catchtap="onClearTime" data-value="open">
+            <text>清除</text>
+        </view>
+    </view>
+    <view class="item-list" catchtap='toggleTimePopup' name="close" data-value="close">
+        <image class='item-icon' src='../../images/dev/next.png' wx:if="{{close.flag}}"></image>
+        <view class='item-icon' wx:else></view>
+        <text class="item-title">关闭时间</text>
+        <text class="item-time" wx:if="{{close.time}}">{{close.time}}</text>
+        <text class="item-time" wx:else>未设置</text>
+        <view class="item-btn" hover-class="item-btn-press" catchtap="onClearTime" data-value="close">
+            <text>清除</text>
+        </view>
+    </view>
+    <van-button class="set-btn" size="large" type="info" bind:click="onSetTime">确定</van-button>
+</view>
+
+<!-- 周期设置弹出层 -->
+<van-popup
+    show="{{ show.period }}"
+    position="bottom"
+    custom-class="bottom"
+    bind:close="togglePeridPopup"
+    bind:transitionEnd="onTransitionEnd"
+  >
+  <van-radio-group value="{{ radio }}" bind:change="onChange">
+    <van-cell-group>
+      <van-cell title="执行一次" is-link bind:click="onSetPeriod" data-value="once"/>
+      <van-cell title="每天" is-link bind:click="onSetPeriod" data-value="everyday"/>
+      <van-cell title="工作日" is-link bind:click="onSetPeriod" data-value="working"/>
+      <van-cell title="周末" is-link bind:click="onSetPeriod" data-value="weekend"/>
+      <van-cell title="自定义" is-link bind:click="onSetPeriod" data-value="custom"/>
+    </van-cell-group>
+  </van-radio-group>
+</van-popup>
+<!-- 自定义周期设置弹出层 -->
+<van-popup
+    show="{{ show.customPeriod }}"
+    position="bottom"
+    custom-class="bottom"
+    bind:close="toggleCustomPeridPopup"
+    bind:transitionEnd="onTransitionEnd"
+  >
+  <!-- <van-radio-group value="{{ radio }}" bind:change="onChange"> -->
+      <van-cell title="周一" clickable data-name="Monday" bind:click="onSetPeriodCustom">
+        <radio name="1" checked="{{period.custom.Monday}}" />
+      </van-cell>
+      <van-cell title="周二" clickable data-name="Tuesday" bind:click="onSetPeriodCustom">
+        <radio name="2" checked="{{period.custom.Tuesday}}" />
+      </van-cell>
+      <van-cell title="周三" clickable data-name="Wednesday" bind:click="onSetPeriodCustom">
+        <radio name="3" checked="{{period.custom.Wednesday}}" />
+      </van-cell>
+      <van-cell title="周四" clickable data-name="Thursday" bind:click="onSetPeriodCustom">
+        <radio name="4" checked="{{period.custom.Thursday}}" />
+      </van-cell>
+      <van-cell title="周五" clickable data-name="Friday" bind:click="onSetPeriodCustom">
+        <radio name="5" checked="{{period.custom.Friday}}" />
+      </van-cell>
+      <van-cell title="周六" clickable data-name="Staurday" bind:click="onSetPeriodCustom">
+        <radio name="6" checked="{{period.custom.Staurday}}" />
+      </van-cell>
+      <van-cell title="周日" clickable data-name="Sunday" bind:click="onSetPeriodCustom">
+        <radio name="7" checked="{{period.custom.Sunday}}" />
+      </van-cell>
+</van-popup>
+<!-- 时间设置弹出层 -->
+<van-popup
+    show="{{ show.time }}"
+    position="bottom"
+    custom-class="bottom"
+    overlay="false"
+    bind:close="toggleTimePopup"
+    bind:transitionEnd="onTransitionEnd"
+  >
+  <van-datetime-picker
+    type="time"
+    data-type="time"
+    loading="{{ loading }}"
+    value="{{ currentDate }}"
+    bind:input="onInput"
+  />
+</van-popup>

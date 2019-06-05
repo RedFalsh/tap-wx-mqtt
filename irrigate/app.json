@@ -1,15 +1,21 @@
 {
   "pages": [
+
     "pages/index/index",
+    "pages/test/move",
     "pages/dev/tap",
     "pages/deviceTap/deviceTap",
     "pages/deviceTap/clock",
     "pages/deviceTap/clockSet",
+    "pages/deviceTap/set",
+    "pages/deviceTap/operatelog",
+    "pages/devTapTwo/deviceTap",
+    "pages/devTapTwo/clock",
+    "pages/devTapTwo/clockSet",
+    "pages/devTapTwo/set",
+    "pages/devTapTwo/operatelog",
     "pages/logs/logs",
-    "pages/food/index",
-    "pages/food/info",
-    "pages/my/index",
-    "pages/deviceTap/set"
+    "pages/my/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

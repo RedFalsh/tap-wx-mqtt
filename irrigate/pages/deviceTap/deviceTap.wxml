@@ -1,5 +1,5 @@
 <view class="container" style="background: {{CloseBgColor}}" wx:if="{{device.status==0}}">
-    <image src="../../images/dev/tap-big.png" class='imgImage'></image>
+    <image src="/images/dev/tap-big.png" class='imgImage'></image>
     <view class="status">
       <text wx:if="{{device.status==0}}">阀门已关闭</text>
         <text wx:elif="{{device.status==1}}">阀门已开启</text>
@@ -9,19 +9,19 @@
     </view>
     <view class="btn-row">
         <view class="btn" hover-class="btn-press" bindtap="onSwitch">
-            <image class="btn-img" src='../../images/dev/tap-sw-offline.png'></image>
+            <image class="btn-img" src='/images/dev/tap-sw-offline.png'></image>
         </view>
         <view class="btn" hover-class="btn-press" bindtap="onTime">
-            <image class="btn-img" src="../../images/dev/time-white.png"></image>
+            <image class="btn-img" src="/images/dev/time-white.png"></image>
         </view>
         <view class="btn" hover-class="btn-press" bindtap="onSet">
-            <image class="btn-img" src="../../images/dev/set.png"></image>
+            <image class="btn-img" src="/images/dev/set.png"></image>
         </view>
     </view>
 </view>
 
 <view class="container" style="background: {{OpenBgColor}}" wx:if="{{device.status==1}}">
-    <image src="../../images/dev/tap-big.png" class='imgImage'></image>
+    <image src="/images/dev/tap-big.png" class='imgImage'></image>
     <view class="status">
       <text wx:if="{{device.status==0}}">阀门已关闭</text>
         <text wx:elif="{{device.status==1}}">阀门已开启</text>
@@ -31,13 +31,13 @@
     </view>
     <view class="btn-row">
         <view class="btn" hover-class="btn-press" bindtap="onSwitch">
-            <image class="btn-img" src='../../images/dev/tap-sw-offline.png'></image>
+            <image class="btn-img" src='/images/dev/tap-sw-offline.png'></image>
         </view>
         <view class="btn" hover-class="btn-press" bindtap="onTime">
-            <image class="btn-img" src="../../images/dev/time-white.png"></image>
+            <image class="btn-img" src="/images/dev/time-white.png"></image>
         </view>
         <view class="btn" hover-class="btn-press" bindtap="onSet">
-            <image class="btn-img" src="../../images/dev/set.png"></image>
+            <image class="btn-img" src="/images/dev/set.png"></image>
         </view>
     </view>
 </view>

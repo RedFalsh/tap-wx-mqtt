@@ -1,8 +1,18 @@
 <view class="page">
-  <view>
-    <van-search value="{{ value }}" shape="round" placeholder="请输入设备名称/ID搜索" use-action-slot bind:search="onSearch">
-      <view slot="action" bind:tap="onSearch">搜索</view>
-    </van-search>
+  <view class="search">
+    <!-- <van-search style="margin-right:0;" value="{{ value }}" shape="round" placeholder="请输入设备名称/ID搜索" use-action-slot bind:search="onSearch"> -->
+      <!-- <view slot="action" bind:tap="onSearch">搜索</view> -->
+    <!-- </van-search> -->
+    <input type="text" placeholder="请输入设备名称搜索" bindinput="oninput"/>
+    <view class="search-btn" hover-class="search-btn-press" bindtap="onSearch">
+      搜索
+    </view>
+    <view class="search-btn" hover-class="search-btn-press" bindtap="onUpdateDevices">
+      刷新
+    </view>
+    <view class="scan-btn" hover-class="scan-btn-press" bindtap="onScan">
+      <image class="scan-btn-img" src='/images/scan.png'></image>
+    </view>
   </view>
 
   <view class="page__bd">
@@ -13,38 +23,71 @@
       wx:for-item='item'
       bindtap='jumpDeviceControl'
       bindlongpress="onDeleteDevice">
-
-      <view class='dev-list'>
-        <!-- 图标 -->
-        <image class='dev-icon' src='../../images/dev/tap-mid.png'></image>
-        <!-- 名称 -->
-        <text class="dev-name">{{item.name}}</text>
-        <!--设备位置-->
-        <!-- <text class="dev-position">{{item.position}}</text> -->
-        <!-- 设备状态显示 -->
-        <text class="tap-status-0" wx:if="{{item.status==0}}">已关闭</text>
-        <text class="tap-status-1" wx:elif="{{item.status==1}}">已开启</text>
-        <text class="tap-status-2" wx:elif="{{item.status==2}}">半开状态</text>
-        <text class="tap-status-1" wx:elif="{{item.status==3}}">开启中...</text>
-        <text class="tap-status-0" wx:elif="{{item.status==4}}">关闭中...</text>
-
-        <!-- 设备开关按钮 -->
-        <view class="btn-sw" hover-class="btn-sw-press" catchtap="onSwitch" data-index='{{index}}' data-status='{{item.status}}'>
-          <image class="btn-sw-image" src='../../images/dev/tap-sw-offline.png'
-            wx:if="{{item.status==0}}"></image>
-          <image class="btn-sw-image" src='../../images/dev/tap-sw-open.png'
-            wx:elif="{{item.status==1}}"></image>
-          <image class="btn-sw-image" src='../../images/dev/tap-sw-offline.png' wx:else></image>
+      <view class='box'>
+        <view class="box__tap_1">
+          <view class="box__tap__left">
+            <text class="alias">{{item.alias1}}</text>
+            <!-- 是否在线 -->
+            <text class="alive-1" wx:if="{{item.online}}">设备在线</text>
+            <text class="alive-0" wx:else>设备离线</text>
+            <image class='dev-icon' src='/images/dev/tap-mid.png'></image>
+          </view>
+          <view class="box__tap__right">
+            <!-- 设备状态显示 -->
+            <text class="tap-status-0" wx:if="{{item.status1==0}}">已关闭</text>
+            <text class="tap-status-1" wx:elif="{{item.status1==1}}">已开启</text>
+            <text class="tap-status-2" wx:elif="{{item.status1==2}}">半开状态</text>
+            <text class="tap-status-1" wx:elif="{{item.status1==3}}">开启中...</text>
+            <text class="tap-status-0" wx:elif="{{item.status1==4}}">关闭中...</text>
+            <!-- 设备开关按钮 -->
+            <view class="btn-sw" hover-class="btn-sw-press" catchtap="onSwitch"
+              data-index='{{index}}'
+              data-number='1'
+              data-status='{{item.status1}}'>
+              <image class="btn-sw-image" src='/images/dev/tap-sw-offline.png'
+                wx:if="{{item.status1==0}}"></image>
+              <image class="btn-sw-image" src='/images/dev/tap-sw-open.png'
+                wx:elif="{{item.status1==1}}"></image>
+              <image class="btn-sw-image" src='/images/dev/tap-sw-offline.png' wx:else></image>
+            </view>
+          </view>
         </view>
-
-        <!-- 小程序是否在线，显示颜色不一样 -->
-        <text class="dev-alive-true" wx:if="{{item.online}}">在线</text>
-        <text class="dev-alive-false" wx:else>离线</text>
-        <image class='dev-icon' src='../../images/dev/next.png'></image>
+        <view class="tunnel-s">
+        </view>
+        <view class="tunnel-m">
+        </view>
+        <view class="tunnel-s">
+        </view>
+        <view class="box__tap_2">
+          <view class="box__tap__left">
+            <text class="alias">{{item.alias2}}</text>
+            <!-- 是否在线 -->
+            <text class="alive-1" wx:if="{{item.online}}">设备在线</text>
+            <text class="alive-0" wx:else>设备离线</text>
+            <image class='dev-icon' src='/images/dev/tap-mid.png'></image>
+          </view>
+          <view class="box__tap__right">
+            <!-- 设备状态显示 -->
+            <text class="tap-status-0" wx:if="{{item.status2==0}}">已关闭</text>
+            <text class="tap-status-1" wx:elif="{{item.status2==1}}">已开启</text>
+            <text class="tap-status-2" wx:elif="{{item.status2==2}}">半开状态</text>
+            <text class="tap-status-1" wx:elif="{{item.status2==3}}">开启中...</text>
+            <text class="tap-status-0" wx:elif="{{item.status2==4}}">关闭中...</text>
+            <!-- 设备开关按钮 -->
+            <view class="btn-sw" hover-class="btn-sw-press" catchtap="onSwitch"
+              data-index='{{index}}'
+              data-number='2'
+              data-status='{{item.status2}}'>
+              <image class="btn-sw-image" src='/images/dev/tap-sw-offline.png'
+                wx:if="{{item.status2==0}}"></image>
+              <image class="btn-sw-image" src='/images/dev/tap-sw-open.png'
+                wx:elif="{{item.status2==1}}"></image>
+              <image class="btn-sw-image" src='/images/dev/tap-sw-offline.png' wx:else></image>
+            </view>
+          </view>
+        </view>
       </view>
-    </view>
-    <view class="scan-btn" hover-class="scan-btn-press" bindtap="onScan">
-        <image class="scan-btn-img" src='../../images/scan.png'></image>
+
     </view>
 
   </view>

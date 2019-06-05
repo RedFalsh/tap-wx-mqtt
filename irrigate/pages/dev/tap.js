@@ -3,39 +3,49 @@ var mDevicesClouds = require('../../utils/devicesClouds.js');
 // var postData = require('../../test/tap-data.js');
 var cmd = require('../../utils/cmd.js');
 import Dialog from '../../utils/vant-weapp/dist/dialog/dialog';
+var timer; // 计时器
 var app = getApp();
+var req = require('../../utils/request.js');
 Page({
   data: {
-    // devicesCloudsDatas: postData,
     cloudsDevices: null,
     devices: null
   },
 
-  onLoad: function () {
 
+  onLoad: function () {
+    var that = this;
     wx.setNavigationBarTitle({
       title: app.globalData.appName
     })
-    if(app.globalData.mqttConnectFlag){
-      wx.showLoading({
-        title: '设备加载中...',
-        duration:1000
-      })
-      this.getDevices()
-      //设置监听函数,设备监听
-      mDevicesClouds.listenDeviceStatusEvent(true, this.callBackDevicesStatus)
-    }
+    timer = setTimeout(function () {
+      that.onUpdateDevices()
+    }, 1000)
+    // if(app.globalData.mqttConnectFlag){
+    //   wx.showLoading({
+    //     title: '设备加载中...',
+    //     duration:1000
+    //   })
+    //   this.getDevices()
+    //   //设置监听函数,设备监听
+    //   mDevicesClouds.listenDeviceStatusEvent(true, this.callBackDevicesStatus)
+    // }
+    //设置监听函数,设备监听
+    mDevicesClouds.listenDeviceStatusEvent(true, this.callBackDevicesStatus)
     //这个是监听服务器的连接回调
     // mDevicesClouds.listenConnectEvent(true, this.funListenConnectEvent)
     // console.log(this.data.cloudsDevices)
-
   },
 
-  onPullDownRefresh(){
-    if(app.globalData.mqttConnectFlag){
+  onShow: function () {
+    this.getConnections()
+  },
+
+  onPullDownRefresh() {
+    if (app.globalData.mqttConnectFlag) {
       wx.showLoading({
         title: '设备加载中...',
-        duration:1000
+        duration: 1000
       })
       this.getDevices()
     }
@@ -48,26 +58,37 @@ Page({
     //取消监听函数，释放内存
     mDevicesClouds.listenDeviceStatusEvent(false, this.callBackDevicesStatus);
   },
-
-  callBackDevicesStatus: function(topic, payload) {
-    console.log("设备状态回调:");
+  
+  // mqtt 接收信息回调
+  callBackDevicesStatus: function (topic, payload) {
+    console.log("收到mqtt订阅消息:");
     console.log("topic:" + topic);
     console.log("payload:" + payload);
     var that = this
     var devices = that.data.devices
-    for (var i = 0; i < devices.length; i++){
-      if (devices[i].pub == topic){
-        var jsonObj = JSON.parse(payload);
-        console.log(jsonObj);
-        switch(jsonObj.code){
-          case cmd.TAP_STATUS:
-            devices[i].status = jsonObj.msg
-            break;
-          case cmd.TAP_ONLINE:
-            devices[i].online = jsonObj.msg
-            break;
-          default:
-            break;
+    for (var i = 0; i < devices.length; i++) {
+      if (devices[i].pub == topic) {
+        var arr = payload.split(':')
+        var code = arr[0]
+        var msg = arr[1]
+        console.log(arr);
+        if (code == cmd.TAP_STATUS) {
+          if (msg == "1-0") devices[i].status1 = 0
+          if (msg == "1-1") devices[i].status1 = 1
+          if (msg == "1-2") devices[i].status1 = 2
+          if (msg == "1-3") devices[i].status1 = 3
+          if (msg == "1-4") devices[i].status1 = 4
+          if (msg == "2-0") devices[i].status2 = 0
+          if (msg == "2-1") devices[i].status2 = 1
+          if (msg == "2-2") devices[i].status2 = 2
+          if (msg == "2-3") devices[i].status2 = 3
+          if (msg == "2-4") devices[i].status2 = 4
+        }
+        if (code == cmd.TAP_ALIVE) {
+          devices[i].online = 1
+        }
+        if (code == cmd.TAP_ONLINE) {
+          devices[i].online = parseInt(msg)
         }
       }
     }
@@ -108,37 +129,69 @@ Page({
     }
   },
 
+  //设备刷新
+  onUpdateDevices: function () {
+    this.setData({
+      devices: null
+    })
+    wx.showLoading({
+      title: '设备加载中...',
+      duration: 1000
+    })
+    this.getDevices()
+  },
+
   //开关按键触发
   onSwitch: function (e) {
-    var device = this.data.devices[e.currentTarget.dataset.index];
-    var status = e.currentTarget.dataset.status;
-
-    if (device.online)
-    {
-      var jsonObj = new Object();
-      jsonObj.code= 200;
-      switch(device.status)
+    var that = this
+    var device = this.data.devices[e.currentTarget.dataset.index]
+    var status = e.currentTarget.dataset.status
+    var number = e.currentTarget.dataset.number
+    if (device.online) {
+      var code = '';
+      var msg = '';
+      if (number == 1) // 1号阀门操作
       {
-        case 0:
-          jsonObj.code = cmd.TAP_OPEN;
-          // jsonObj.code = cmd.TAP_SET_TIME;
-          break;
-        case 1:
-          jsonObj.code = cmd.TAP_CLOSE;
-          // jsonObj.code = cmd.TAP_SET_TIME;
-          break;
-        case 2:
-          jsonObj.code = cmd.TAP_OPEN;
-          break;
-        default:
-          break;
+        msg = '1'
+        switch (device.status1) {
+          case 0:
+            code = cmd.TAP_OPEN;
+            break;
+          case 1:
+            code = cmd.TAP_CLOSE;
+            break;
+          case 2:
+            code = cmd.TAP_OPEN;
+            break;
+          default:
+            break;
+        }
       }
-      console.log('topic:' + device.sub)
-      console.log('msg:' + JSON.stringify(jsonObj))
-      // var topic = '/dev/' + device.sn + '/sub'
-      mDevicesClouds.notifyWriteDeviceEvent(device.sub, JSON.stringify(jsonObj));
+      if (number == 2) // 2号阀门操作
+      {
+        msg = '2'
+        switch (device.status2) {
+          case 0:
+            code = cmd.TAP_OPEN;
+            break;
+          case 1:
+            code = cmd.TAP_CLOSE;
+            break;
+          case 2:
+            code = cmd.TAP_OPEN;
+            break;
+          default:
+            break;
+        }
+      }
+      if (code) {
+        var payload = code + ":" + msg
+        console.log('topic:' + device.sub)
+        console.log('msg:' + payload)
+        mDevicesClouds.notifyWriteDeviceEvent(device.sub, payload, 2);
+      }
     }
-    else{
+    else {
       wx.showToast({
         title: '操作失败, 设备离线',
         icon: 'none',
@@ -151,16 +204,15 @@ Page({
   jumpDeviceControl: function (e) {
     var device = this.data.devices[e.currentTarget.dataset.index];
     // 设备是否在线？如果在线则可以跳转
-    switch (device.type) {
-      case 'tap':
-        wx.navigateTo({
-          // url: "../deviceTap/deviceTap?sn=" + device.sn + "&pub=" + device.pub + "&sub=" + device.sub + "&name=" + device.name + "&status=" + device.status
-          url: "../deviceTap/deviceTap?sn=" + device.sn + "&pub=" + device.pub + "&sub=" + device.sub + "&name=" + device.name + "&status=" + device.status + "&online=" + device.online
-        })
-        break;
-      case 'outlet':
+    switch (device.number) {
+      case 'dqt001':
         wx.navigateTo({
           url: "../deviceSocket/deviceSocket?devicePubTopic=" + device.devicePubTopic + "&sub=" + device.sub + "&alias=" + device.alias
+        })
+        break;
+      case 'dqt002':
+        wx.navigateTo({
+          url: "../devTapTwo/deviceTap?sn=" + device.sn + "&pub=" + device.pub + "&sub=" + device.sub + "&name=" + device.name + "&status=" + device.status + "&online=" + device.online
         })
         break;
       default:
@@ -169,13 +221,14 @@ Page({
   },
 
   // 扫一扫添加设备
-  onScan: function(e){
+  onScan: function (e) {
     console.log(e)
     var that = this
     wx.scanCode({
       success: (res) => {
         var jsonObj = JSON.parse(res.result)
-        var topic = '/dev/'+jsonObj.sn + '/sub'
+        console.log(res.result)
+        var topic = '/dev/' + jsonObj.sn + '/sub'
         mDevicesClouds.notifySubDeviceTopicEvent(topic)
         wx.request({
           url: app.buildUrl('/device/add'),
@@ -206,45 +259,94 @@ Page({
     })
   },
 
-  doSubscribe: function(){
+  // 订阅设备
+  doSubscribe: function () {
     var that = this
     var devices = that.data.devices
-    if (app.globalData.mqttConnectFlag){
+    if (app.globalData.mqttConnectFlag) {
       for (var i = 0; i < devices.length; i++) {
         let topic = devices[i].pub;
-        // if (devices[i].online) {
+        if (devices[i].online) {
           //console.log('此设备在线，我们订阅设备推送的主题：' + topic);
           mDevicesClouds.notifySubDeviceTopicEvent(topic);
-          console.log('订阅:'+topic)
-        // }
+          console.log('订阅:' + topic)
+        }
       }
     }
   },
 
+  // 获取所有设备是否在线
+  getConnections: function () {
+    var that = this
+    var devices = that.data.devices
+    var sn_list = new Array()
+    if (devices) {
+      for (var i = 0; i < devices.length; i++) {
+        sn_list[i] = devices[i].sn
+      }
+      console.log(sn_list)
+      wx.request({
+        url: app.buildUrl('/device/connections'),
+        header: app.getRequestHeader(),
+        data: { sn_list: sn_list },
+        success: function (res) {
+          if (res.data.code != 200) {
+            console.log('获取设备在线信息失败')
+            return
+          }
+          // 处理设备返回在线信息
+          var connections = res.data.data
+          for (var sn in connections) {
+            for (var i = 0; i < devices.length; i++) {
+              if (sn == devices[i].sn) {
+                devices[i].online = connections[sn].online
+                break
+              }
+            }
+          }
+          // 更新设备数据
+          that.setData({
+            devices: devices
+          })
+          that.doSubscribe()
+        }
+      });
+    }
+  },
+
   // 获取设备
-  getDevices:function(){
+  getDevices: function () {
     var that = this
     wx.request({
       url: app.buildUrl('/device/list'),
       header: app.getRequestHeader(),
       success: function (res) {
         if (res.data.code != 200) {
-          console.log('获取设备信息失败')
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1000
+          })
           return
         }
-        console.log('获取设备信息成功')
-        console.log(res.data.data)
         var devices = res.data.data
         that.setData({
           devices: devices
         })
         that.doSubscribe()
+      },
+      fail: function (err) {
+        wx.showToast({
+          title: '设备加载失败!',
+          icon: 'none',
+          duration: 1000
+        })
       }
     });
   },
 
   // 删除设备
-  onDeleteDevice:function(e){
+  onDeleteDevice: function (e) {
     var that = this
     var sn = e.currentTarget.dataset.sn
     Dialog.confirm({
@@ -253,9 +355,8 @@ Page({
     }).then(() => {
       // on confirm
       wx.request({
-        url: app.buildUrl('/device/delete'),
+        url: app.buildUrl('/device/delete/' + sn),
         header: app.getRequestHeader(),
-        data: {sn: sn},
         success: function (res) {
           if (res.data.code != 200) {
             wx.showToast({
